@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <base href="/">
+        <style>
+            * {
+                font-size: 30px;
+                font-family: Arial, Helvetica, sans-serif;
+                color: #252525;
+                box-sizing: border-box;
+                padding: 0;
+                margin: 0;
+            }
+            .border-top {
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+            }
+            .border-bottom-left {
+                border-bottom-left-radius: 15px;
+            }
+            .border-bottom-right {
+                border-bottom-right-radius: 15px;
+            }
+            body {
+                padding: 50px;
+                display: flex;
+                flex-direction: column;
+                height: 100vh;
+                border-radius: 60px;
+                overflow: hidden;
+                background: #ebebeb;
+            }
+            button {
+                border: none;
+            }
+            header {
+                background: #FF8484;
+                padding: 30px;
+                display: flex;
+                justify-content: space-between;
+            }
+            nav {
+                background: #2374ab;
+                padding: 30px;
+                flex: 0 0 250px;
+            }
+            main {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+            footer {
+                background: #4dccbd;
+                padding: 30px;
+            }
+            .product {
+                flex: 1;
+                padding: 30px;
+            }
+            .details {
+                background: #8d8d8d;
+                padding: 30px;
+                flex: 0 0 350px;
+            }
+            .row {
+                display: flex;
+                width: 100%;
+            }
+            .main-container {
+                flex: 1;
+            }
+            section {
+                flex: 1;
+            }
+            .user {
+                width: 35px;
+                height: 35px;
+                background-color: #3f9ad6;
+            }
+            .product .user-color {
+                background: rgb(11, 255, 39);
+            }
+            .product .user {
+                border-radius: 50%;
+                display: block;
+                overflow: hidden;
+                position: relative;
+                cursor: pointer;
+            }
+            .product .user::after, .product .user::before {
+                content: "";
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background-color: black;
+                position: absolute;
+                opacity: 0.6;
+                bottom: 16px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .product .user::before {
+                width: 20px;
+                height: 20px;
+                bottom: -6px;
+            }
+
+            .flex {
+                display: flex;
+            }
+            .mx {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            .modal-container{
+                background: rgba(0,0,0,0.5);
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                position: fixed;
+                top: 0;
+                display: none;
+            }
+            .modal {
+                border-radius: 15px;
+                box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+                background: #d1d1d1d5;
+                text-align: center;
+                padding: 20px;
+                position: fixed;
+                z-index: 1;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 50%;
+                height: 50%;
+            }
+            .close {
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                background: #3f9ad6;
+                padding: 5px;
+                border-radius: 50%;
+                width: 42px;
+                height: 42px;
+                cursor: pointer;
+            }
+        </style>
+    
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">Riddhi Phatnani</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">14562200.0000000</mso:Order>
+<mso:ComplianceAssetId msdt:dt="string"></mso:ComplianceAssetId>
+<mso:SharedWithUsers msdt:dt="string"></mso:SharedWithUsers>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">Riddhi Phatnani</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:TriggerFlowInfo msdt:dt="string"></mso:TriggerFlowInfo>
+<mso:ContentTypeId msdt:dt="string">0x0101002433A22E08CBFB49B0E65B7E0B5148FD</mso:ContentTypeId>
+<mso:_SourceUrl msdt:dt="string"></mso:_SourceUrl>
+<mso:_SharedFileIndex msdt:dt="string"></mso:_SharedFileIndex>
+<mso:MediaLengthInSeconds msdt:dt="string"></mso:MediaLengthInSeconds>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+    <body>
+
+        <header class="border-top">
+            <span>Header</span>
+        </header>
+        <div class="row main-container">  
+            <nav class="border-bottom-left">
+                <span>Navbar</span>
+            </nav>
+            <main>
+                <section class="row">
+                    <div class="product">
+                        <span>Product</span>
+                        <button class="user mx user-color"></button>
+                    </div>
+                    <div class="details">
+                        <span>Product Details</span>
+                    </div>
+                </section>
+                <footer class="border-bottom-right">
+                    <span>Footer</span>
+                </footer>
+            </main>
+        </div>
+
+        <div class="modal-container">
+            <div class="modal">
+                <span onclick="closeModal()" class="close">X</span>
+                <span>User details</span>
+            </div>
+        </div>
+
+
+
+        <script>
+            const element = document.getElementsByClassName('user-color')[0];
+            const modal = document.getElementsByClassName('modal-container')[0];
+            element.addEventListener("click", () => {
+                console.log('modal.style.display', modal.style.display);
+                modal.style.display = modal.style.display === "block" ? "none" : "block";
+            });
+
+            function closeModal() {
+                const modal = document.getElementsByClassName('modal-container')[0];
+                modal.style.display = "none";
+            }
+        </script>
+
+    </body>
+</html>
